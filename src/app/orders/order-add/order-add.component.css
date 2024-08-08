@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem;
+}
+
+form > div{
+    width: 30%;
+    white-space: wrap;
+}
+
+form > button{
+    height: 2rem;
+    padding: 2px 10px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+}
+.lowOpacity{
+    opacity: 0.5;
+}
+.error{
+    color: #8B0000;
+    background-color: #F88379;
+    padding: 2px 10px;
+    border-radius: 5px;
+}

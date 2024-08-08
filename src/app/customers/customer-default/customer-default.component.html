@@ -1,0 +1,26 @@
+<form (ngSubmit)="handleSubmit()" #form="ngForm">
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" [(ngModel)]="name" required ngModel minlength="3" #nameModel="ngModel">
+        <div  class="error" *ngIf="nameModel.invalid && nameModel.touched">
+            <div  *ngIf="nameModel.errors?.['required']">Name should not be empty</div>
+            <div *ngIf="nameModel.errors?.['minlength']">Name should contain more than 3 characters</div>
+        </div>
+    </div>
+    <div>
+        <label for="city">City: </label>
+        <input type="text" name="city" id="city" [(ngModel)]="city" required ngModel minlength="3" #cityModel="ngModel">
+        <div  class="error" *ngIf="cityModel.invalid && cityModel.touched">
+            <div *ngIf="cityModel.errors?.['required']">City should not be empty</div>
+            <div *ngIf="cityModel.errors?.['minlength']">City should contain more than 3 characters</div>
+        </div>
+    </div>
+    <div>
+        <label for="order">OrderTotal: </label>
+        <input type="number" name="order" id="order" [(ngModel)]="order" disabled required ngModel #orderModel="ngModel">
+        <div  class="error" *ngIf="orderModel.invalid && orderModel.touched">
+            <div *ngIf="orderModel.errors?.['required']">OrderTotal should not be empty</div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid" [class.lowOpacity]="form.invalid">Add Customer</button>
+</form>

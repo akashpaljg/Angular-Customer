@@ -1,0 +1,18 @@
+<form (ngSubmit)="handleSubmit()" #form="ngForm">
+    <div>
+        <label for="pName">Product Name: </label><br/>
+        <input type="text" name="pName" id="pName" [(ngModel)]="pName" required ngModel minlength="3" #nameModel="ngModel">
+        <div  class="error" *ngIf="nameModel.invalid && nameModel.touched">
+            <div  *ngIf="nameModel.errors?.['required']">Product Name should not be empty</div>
+            <div *ngIf="nameModel.errors?.['minlength']">Product Name should contain more than 3 characters</div>
+        </div>
+    </div>
+    <div>
+        <label for="pCost">Item Cost: </label><br />
+        <input type="number" name="pCost" id="pCost" [(ngModel)]="pCost" required ngModel #cityModel="ngModel">
+        <div  class="error" *ngIf="cityModel.invalid && cityModel.touched">
+            <div *ngIf="cityModel.errors?.['required']">Product Cost should not be empty</div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid" [class.lowOpacity]="form.invalid">Add Order</button>
+</form>

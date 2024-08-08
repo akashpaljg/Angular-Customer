@@ -1,0 +1,55 @@
+<filter-textbox (changed)="filter($event)"></filter-textbox>
+<br />
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th (click)="sort('name')">Name</th>
+            <th (click)="sort('city')">City</th>
+            <th (click)="sort('orderTotal')">Order Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let cust of filteredCustomers">
+        <ng-container *ngIf="cust.id === editStatus.editIndex ; then canEdit; else cannotEdit"></ng-container>
+
+        <ng-template #cannotEdit>
+            <td>
+                <a [routerLink]="['/orders', cust.id]">
+                    {{ cust.name | capitalize }}
+                </a>
+            </td>
+            <td>{{ cust.city }}</td>
+            <td>{{ cust.orderTotal | currency:currencyCode:'symbol' }}</td>
+            <td class="button-ed">
+                <button class="btn btn-warning" (click)="edit(cust.id)">Edit</button>
+                <button class="btn btn-danger" (click)="delete(cust.id)">Delete</button>
+            </td>
+        </ng-template>
+
+        <ng-template #canEdit>
+            <td>
+                <input type="text" name="eName" [(ngModel)]="eName" value={{cust.name}}>
+            </td>
+            <td>
+                <input type="text" name="eCity" [(ngModel)]="eCity" value={{cust.city}}>
+            </td>
+            <td></td>
+            <td class="button-ed">
+                <button class="btn btn-primary" (click)="save()">Save</button>
+            </td>
+        </ng-template>
+       
+    </tr>
+    <tr *ngIf="filteredCustomers && filteredCustomers.length">
+        <td colspan="2">&nbsp;</td>
+        <td>
+            {{ customersOrderTotal | currency:currencyCode:'symbol'  }}
+        </td>
+    </tr>
+    <tr *ngIf="!filteredCustomers || !filteredCustomers.length">
+        <td colspan="4">No customers found</td>
+    </tr>
+</table>
+Number of Customers: {{ filteredCustomers.length }}
+<br />

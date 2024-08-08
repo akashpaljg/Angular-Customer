@@ -1,0 +1,6 @@
+<h1>{{ title }}</h1>
+<br/>
+<app-customers-default (customerAdded) = "add($event)"></app-customers-default>
+<br/>
+<app-customers-list [customers]="people" (deleteCustomer)="deleteCustomer($event)" (editCustomer)="editCustomer($event)"></app-customers-list>
+ 
