@@ -1,0 +1,18 @@
+/* nav section */
+.nav--section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5% 1%;
+}
+
+.navigate--links{
+    display: flex;
+    flex-direction: row;
+}
+
+.navigate--links > a{
+    text-transform: uppercase;
+    margin-right: 1rem;
+    text-decoration: none;
+}

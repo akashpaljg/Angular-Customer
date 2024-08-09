@@ -1,0 +1,86 @@
+<!-- nav section -->
+ <highlight-nav></highlight-nav>
+
+<!-- main section -->
+ <div class="main--section">
+    <div class="box">
+        <div class="arrow">
+            arrow
+        </div>
+    </div>
+    <div class="box ">
+        <div class="title">
+            Create New Question
+        </div>
+        
+    </div>
+    <div class="box ">
+        <div class="buttons">
+            <button>Discard</button>
+            <button>Publish</button>
+            <button>Save</button>
+        </div>
+        
+    </div>
+ </div>
+
+ <!-- question properties and question content -->
+
+ <div class="qp--section">
+    <div class="qp--box">
+        <a href="#">
+            Question Properties
+        </a>
+    </div>
+    <div class="qp--box ">
+        <div class="hr-line">
+            <hr>
+        </div>
+        
+    </div>
+    <div class="qp--box ">
+        <a href="#">
+            Question Content
+        </a>
+        
+    </div>
+ </div>
+
+ <!-- form -->
+<form>
+    <div>
+        <label for="question">Question*</label><br>
+        <input type="text" name="question" (blur)="updateVisibility()" id="question" [(ngModel)]="question">
+    </div>
+    <div>
+        <label for="textPhrase">Text Phrase*</label><br>
+        <input type="text" name="textPhrase" (blur)="updateVisibility()" id="textPhrase" [(ngModel)]="textPhrase">
+    </div>
+    <div>
+        <div>Set Answer Type*</div>
+        <div>
+            <div>
+                <input type="radio" id="word" (change)="updateVisibility()" name="drone" value="word" [(ngModel)]="answerType" />
+                <label for="word">Word</label>
+            </div>
+            
+            <div>
+                <input type="radio" id="sentence" (change)="updateVisibility()" name="drone" value="sentence" [(ngModel)]="answerType" />
+                <label for="sentence">Sentence</label>
+            </div>
+            
+            <div>
+                <input type="radio" id="paragraph" (change)="updateVisibility()" name="drone" value="paragraph" [(ngModel)]="answerType" />
+                <label for="paragraph">Paragraph</label>
+            </div>
+            <div>
+                <input type="radio" id="custom" (change)="updateVisibility()" name="drone" value="custom" [(ngModel)]="answerType" />
+                <label for="custom">Custom</label>
+            </div>
+            </div>
+        </div>
+</form>
+
+<!-- Selectors -->
+<highlight-selector [selectors]="options" (options)="editOptions($event)"></highlight-selector>
+<highlight-correct [selectors]="options"></highlight-correct>

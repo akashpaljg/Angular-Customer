@@ -1,0 +1,70 @@
+
+
+/* main section */
+.main--section{
+    display: flex;
+    padding: 1% 1%;
+}
+
+.box{
+    flex:1;
+    display: flex;
+    justify-content: center;
+}
+
+.box:first-child > div { margin-right: auto; }
+
+.box:last-child  > div { margin-left: auto; }
+
+.buttons > button{
+    margin-right: 1rem;
+}
+
+
+/* Question Properties section */
+.qp--section{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.qp--box:first-child, .qp--box:last-child{
+    flex: 0.5; /* Reduces space taken by the first and last boxes */
+    display: flex;
+}
+
+.qp--box:nth-child(2){
+    flex-grow: 2.5; /* Increases the space taken by the middle box, making the line longer */
+    display: flex;
+    justify-content: center; /* Center the hr line */
+    text-align: center;
+}
+
+.qp--box:first-child > a{
+    margin-right: auto; /* Pushes content to the left */
+    text-align: center;
+    text-decoration: none;
+}
+
+.qp--box:last-child > a{
+    margin-left: auto; /* Pushes content to the right */
+    text-align: center;
+    text-decoration: none;
+}
+
+.hr-line{
+    margin: 0 auto;
+    width: 100%; /* Full width of the box */
+}
+
+/* 
+[
+    {
+        id:questionID,
+        question,
+        textPhrase,
+        answerType: word,sentence,paragraph
+        options:Map<data,{isSelected:,isCorrect}>
+    }
+] */
